@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export interface User {
-    fullName: string;
+    fullname: string;
     username: string;
     email: string;
     password: string;
@@ -14,7 +14,7 @@ export interface User {
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema<User>({
-    fullName: {
+    fullname: {
         type: Schema.Types.String,
         required: true,
     },

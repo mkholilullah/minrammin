@@ -15,7 +15,7 @@ async function init() {
 
         const PORT = 3000;
 
-        app.use('/', (req, res) => {
+        app.get('/', (req, res) => {
             res.status(200).json({
                 message: "Server is running!",
                 data: null

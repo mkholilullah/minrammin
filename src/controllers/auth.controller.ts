@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import UserModel from "../models/user.model";
 import { encrypt } from "../utils/encryption";
 import { generateToken } from "../utils/jwt";
+import { IReqUser } from "../middlewares/auth.middleware";
 
 type TRegister = {
     fullname: string;
@@ -106,5 +107,23 @@ export default {
                 data: null,
             });
         }
-    }
+    },
+
+    async mine(req: IReqUser, res: Response) {
+        try {
+            const user = req.user;
+            const result = await UserModel.findById(user?.id);
+
+            res.status(200).json({
+                message: "Success get user profile",
+                data: result,
+            });
+        } catch (error) {
+            const err = error as unknown as Error;
+            res.status(400).json({
+                message: err.message,
+                data: null,
+            });
+        }
+    },
 };

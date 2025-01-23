@@ -5,7 +5,7 @@ import { SECRET } from "./env";
 import { User } from "../models/user.model";
 
 export interface IUserToken 
-        extends Omit<
+extends Omit<
         User, 
         "password" 
         | "activationCode" 
@@ -16,7 +16,6 @@ export interface IUserToken
         | "username"
 > {
         id?: Types.ObjectId;
-
 }
 
 export const generateToken = (user: IUserToken): string => {

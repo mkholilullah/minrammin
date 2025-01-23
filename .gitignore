@@ -1,3 +1,28 @@
-node_modules
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
 
+# Build files
+/dist
+/build
+
+# Environment variables
 .env
+
+# Logs
+*.log
+logs/
+
+# Database files (if any)
+/data/db
+
+# OS & Editor specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Miscellaneous
+*.swp  # Vim swap files
+*.swo  # Vim swap files

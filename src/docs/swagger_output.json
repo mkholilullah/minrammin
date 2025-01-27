@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v0.0.1",
-    "title": "Dokumentasi API SAEVENT",
-    "description": "Dokumentasi API EVENT"
+    "title": "Dokumentasi API MINRAMMIN",
+    "description": "Dokumentasi API MINRAMMIN"
   },
   "servers": [
     {
@@ -31,27 +31,16 @@
           }
         },
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "fullname": {
-                    "example": "any"
-                  },
-                  "username": {
-                    "example": "any"
-                  },
-                  "email": {
-                    "example": "any"
-                  },
-                  "password": {
-                    "example": "any"
-                  },
-                  "confirmPassword": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
               }
             }
           }
@@ -115,6 +104,37 @@
           }
         ]
       }
+    },
+    "/auth/activation": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivationRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivationRequest"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -130,15 +150,55 @@
         "properties": {
           "identifier": {
             "type": "string",
-            "example": "Maskopi"
+            "example": "muskkopi29"
           },
           "password": {
             "type": "string",
-            "example": "43211234"
+            "example": "HbD4Os2lhY982wqpIe2"
           }
         },
         "xml": {
           "name": "LoginRequest"
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "fullname": {
+            "type": "string",
+            "example": "MuskKopi Mask"
+          },
+          "username": {
+            "type": "string",
+            "example": "muskkopi29"
+          },
+          "email": {
+            "type": "string",
+            "example": "muskkopi29@domain.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "HbD4Os2lhY982wqpIe2"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "example": "HbD4Os2lhY982wqpIe2"
+          }
+        },
+        "xml": {
+          "name": "RegisterRequest"
+        }
+      },
+      "ActivationRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "abcdef"
+          }
+        },
+        "xml": {
+          "name": "ActivationRequest"
         }
       }
     }

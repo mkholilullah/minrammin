@@ -6,8 +6,8 @@ const endpointsFile = ["../routes/api.ts"];
 const doc = {
     info: {
         version: "v0.0.1",
-        title: "Dokumentasi API SAEVENT",
-        description: "Dokumentasi API EVENT"
+        title: "Dokumentasi API MINRAMMIN",
+        description: "Dokumentasi API MINRAMMIN"
     },
     servers: [
         {
@@ -28,8 +28,18 @@ const doc = {
         },
         schemas: {
             LoginRequest: {
-                identifier: "Maskopi",
-                password: "43211234",
+                identifier: "muskkopi29",
+                password: "HbD4Os2lhY982wqpIe2",
+            },
+            RegisterRequest: {
+                fullname: "MuskKopi Mask",
+                username: "muskkopi29",
+                email: "muskkopi29@domain.com",
+                password: "HbD4Os2lhY982wqpIe2",
+                confirmPassword: "HbD4Os2lhY982wqpIe2",
+            },
+            ActivationRequest: {
+                code: "abcdef",
             }
         },
     }

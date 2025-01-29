@@ -181,6 +181,7 @@ export default {
             message: "User successfully activated",
             data: user,
         });
+        
         } catch (error) {
             const err = error as unknown as Error;
             res.status(400).json({
